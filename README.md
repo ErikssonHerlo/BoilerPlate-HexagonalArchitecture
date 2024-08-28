@@ -1,5 +1,5 @@
 # BoilerPlate-HexagonalArchitecture
-___
+
 This project is a boilerplate for building applications in **Java** using **Spring Boot** with a structure based on **Hexagonal Architecture**, combined with **Vertical Slicing** and **Screaming Architecture** approaches. The purpose of this boilerplate is to provide a solid, scalable foundation for developing microservices with a clean, well-structured, and easy-to-maintain design.
 
 ## Table of Contents
