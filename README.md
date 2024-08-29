@@ -1,4 +1,4 @@
-# BoilerPlate-HexagonalArchitecture
+****# BoilerPlate-HexagonalArchitecture
 
 This project is a boilerplate for building applications in **Java** using **Spring Boot** with a structure based on **Hexagonal Architecture**, combined with **Vertical Slicing** and **Screaming Architecture** approaches. The purpose of this boilerplate is to provide a solid, scalable foundation for developing microservices with a clean, well-structured, and easy-to-maintain design.
 
@@ -61,34 +61,54 @@ This project follows a structure that combines these three approaches to maximiz
 |   |   |   |   |   |   |-- /dto                  # Data Transfer Objects
 |   |   |   |   |   |   |   |-- UserDTO.java
 |   |   |   |   |   |   |   |-- LoginRequestDTO.java
-|   |   |   |   |   |   |-- /ports                # Ports (interfaces for input/output)
-|   |   |   |   |   |   |   |-- RegisterUserInputPort.java
-|   |   |   |   |   |   |   |-- LoginUserInputPort.java
-|   |   |   |   |   |   |   |-- UserRepositoryPort.java
+|   |   |   |   |   |   |-- /security
+|   |   |   |   |   |   |   |-- JWTService.java
+|   |   |   |   |   |   |-- /exceptions               # Custom Exceptions
+|   |   |   |   |   |   |   |-- UserNotFoundException.java
+|   |   |   |   |   |   |-- /cron                     # Cron Jobs and Scheduled Tasks
+|   |   |   |   |   |   |   |-- ReservationScheduler.java
 |   |   |   |   |   |-- /domain                       # Domain Layer
 |   |   |   |   |   |   |-- /model                    # Domain Entities
 |   |   |   |   |   |   |   |-- User.java
 |   |   |   |   |   |-- /infrastructure               # Infrastructure Layer
 |   |   |   |   |   |   |-- /adapter
-|   |   |   |   |   |   |   |-- /input                # Input Adapters (Controllers, Filters)
+|   |   |   |   |   |   |   |-- /input                # Input Adapters (Controllers)
 |   |   |   |   |   |   |   |   |-- UserController.java
-|   |   |   |   |   |   |   |   |-- JWTAuthenticationFilter.java
-|   |   |   |   |   |   |   |-- /output               # Output Adapters (Persistence)
-|   |   |   |   |   |   |   |   |-- UserJpaRepositoryAdapter.java
+|   |   |   |   |   |   |   |-- /output       # Output Adapters (Persistencia)
+|   |   |   |   |   |   |   |   |-- /persistence
+|   |   |   |   |   |   |   |   |   |-- /jpa
+|   |   |   |   |   |   |   |   |   |   |-- UserJpaRepositoryAdapter.java
+|   |   |   |   |   |   |   |   |-- /repository
+|   |   |   |   |   |   |   |   |   |-- UserJpaRepository.java
+|   |   |   |   |   |   |   |-- /entities
+|   |   |   |   |   |   |   |   |-- UserEntity.java
+|   |   |   |   |   |   |-- /ports                # Ports (interfaces for input/output)
+|   |   |   |   |   |   |   |-- /input   
+|   |   |   |   |   |   |   |   |-- RegisterUserInputPort.java
+|   |   |   |   |   |   |   |   |-- LoginUserInputPort.java
+|   |   |   |   |   |   |   |-- /output   
+|   |   |   |   |   |   |   |   |-- UserRepositoryPort.java
 |   |   |   |   |   |   |-- /config                   # Configuration Classes
 |   |   |   |   |   |   |   |-- SecurityConfig.java
 |   |   |   |   |   |   |   |-- SwaggerConfiguration.java
 |   |   |   |   |   |   |   |-- ApplicationConfiguration.java
 |   |   |   |   |   |   |   |-- SchedulingConfiguration.java
-|   |   |   |   |   |   |-- /cron                     # Cron Jobs and Scheduled Tasks
-|   |   |   |   |   |   |   |-- ReservationScheduler.java
-|   |   |   |   |   |   |-- /migrations               # Database Migrations (Flyway or Liquibase)
-|   |   |   |   |   |   |   |-- V1__Create_Users_Table.sql
-|   |   |   |   |   |-- /common                       # Common Utilities and Shared Services
+|   |   |   |   |-- /common                       # Common Utilities and Shared Services
+|   |   |   |   |   |-- /application
+|   |   |   |   |   |   |-- /anotations
+|   |   |   |   |   |   |   |-- UseCaseAnotation.java
+|   |   |   |   |   |   |   |-- OutputAdapterAnotation.java
+|   |   |   |   |   |   |-- /exceptions               # Global Exceptions
+|   |   |   |   |   |   |   |-- GlobalExceptionHandler.java
+|   |   |   |   |   |   |   |-- ResourceNotFoundException.java
+|   |   |   |   |   |   |   |-- BadRequestException.java
+|   |   |   |   |   |   |-- /payload
+|   |   |   |   |   |   |   |-- ApiResponse.java
+|   |   |   |   |   |   |   |-- AuthResponse.java
+|   |   |   |   |   |   |   |-- PaginationResponse.java
+|   |   |   |   |   |-- /infrastructure               # Infrastructure Layer
 |   |   |   |   |   |   |-- /security
-|   |   |   |   |   |   |   |-- JWTService.java
-|   |   |   |   |   |   |-- /exceptions               # Custom Exceptions
-|   |   |   |   |   |   |   |-- UserNotFoundException.java
+|   |   |   |   |   |   |   |-- JWTAuthenticationFilter.java
 |   |-- /resources                                # Resources Directory
 |   |   |-- /db
 |   |   |   |-- /migrations                       # SQL Migration Files
