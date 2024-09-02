@@ -1,4 +1,4 @@
-package com.erikssonherlo.user.common.anotations;
+package com.erikssonherlo.common.anotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
